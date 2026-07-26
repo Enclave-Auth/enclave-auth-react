@@ -3,28 +3,41 @@
 Drop-in Enclave Auth sign-in and sign-up UI for React web apps. Renders inline
 on the host page — no redirect to Enclave-owned URLs.
 
+## Documentation
+
+**[Integration guide](./docs/integration.md)** — quickstart, core concepts,
+component API reference, theming, and origin/key troubleshooting.
+
 ## Install
 
+`@enclave/auth-react` is not on npm yet. Until the first release:
+
 ```bash
-npm install @enclave/auth-react @enclave/auth-sdk
+npm install github:Enclave-Auth/enclave-auth-react#main
 ```
 
-Import styles once in your app:
+After publish:
+
+```bash
+npm install @enclave/auth-react
+```
+
+Import styles once:
 
 ```tsx
 import "@enclave/auth-react/styles.css";
 ```
 
-## Quick start
+## Minimal example
 
 ```tsx
 import {
   EnclaveAuthProvider,
   SignIn,
-  SignUp,
   UserButton,
   useAuth,
 } from "@enclave/auth-react";
+import "@enclave/auth-react/styles.css";
 
 export function App() {
   return (
@@ -48,6 +61,9 @@ function Header() {
 }
 ```
 
+See [docs/integration.md](./docs/integration.md) for a complete Vite quickstart,
+env setup, and verification steps.
+
 ## Session persistence
 
 Only the **session token** is cached in `localStorage` at
@@ -55,17 +71,14 @@ Only the **session token** is cached in `localStorage` at
 stay in memory for the duration of an unlock/login operation and are wiped
 afterward — this package does not use `enclave-secure-storage`.
 
-## Theming
+## Verify setup
 
-Override any CSS custom property on the provider `theme` prop, e.g.
-`--enclave-auth-color-accent`. Defaults match Enclave Auth's dark / coral brand.
-
-## Powered by footer
-
-`<SignIn />` and `<SignUp />` render a small "Powered by Enclave Auth" footer
-by default. Whether it **can** be hidden is controlled by your Application's
-public `application-config` (`brandingRemovable`) — not a unilateral client
-override on free plans.
+```bash
+ENCLAVE_AUTH_PUBLISHABLE_KEY=pk_live_… \
+ENCLAVE_AUTH_API_BASE_URL=https://….supabase.co/functions/v1 \
+ENCLAVE_AUTH_TEST_ORIGIN=http://localhost:5173 \
+node scripts/verify-quickstart.mjs
+```
 
 ## License
 

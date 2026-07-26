@@ -17,6 +17,7 @@
     "dist/**/*.js",
     "dist/**/*.d.ts",
     "dist/**/*.css",
+    "docs/**/*.md",
     "README.md",
     "LICENSE"
   ],
@@ -28,6 +29,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "verify:quickstart": "node scripts/verify-quickstart.mjs",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
