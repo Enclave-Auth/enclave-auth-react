@@ -124,4 +124,38 @@ export async function resetPasswordWithPin(
   }
 }
 
+export async function deriveAmkWithPassword(
+  api: AuthApiClient,
+  email: string,
+  password: string,
+): Promise<Uint8Array> {
+  const normalized = normalizeEmail(email);
+  const blobs = await api.fetchAccountBlobs(normalized);
+  const unlocked = await unlockWithPassword(
+    blobs.wrappedIdentityKey as WrappedIdentityKey,
+    blobs.passwordUnlock as WrappedAmk,
+    password,
+  );
+  unlocked.identitySecretKeySeed.fill(0);
+  return unlocked.amk;
+}
+
+export function wipeAmk(amk: Uint8Array): void {
+  amk.fill(0);
+}
+
+export async function withDerivedAmk<T>(
+  api: AuthApiClient,
+  email: string,
+  password: string,
+  action: (amk: Uint8Array) => Promise<T>,
+): Promise<T> {
+  const amk = await deriveAmkWithPassword(api, email, password);
+  try {
+    return await action(amk);
+  } finally {
+    wipeAmk(amk);
+  }
+}
+
 export { encodePublicKey };

@@ -14,7 +14,8 @@ Drop-in React sign-in / sign-up UI for third-party web apps embedding Enclave Au
 5. `brandingRemovable` comes from `application-config` — footer hide is gated on
    that server field, not a unilateral client override on free plans.
 6. Scope styles under `.enclave-auth`; expose theme via CSS custom properties.
-7. No `enclave-secure-storage`, no OS keychain, no framework variants beyond React.
+7. Session-gated profile via `auth-account-profile`; Recovery Key rotation via
+   `auth-rotate-recovery-key` (did not exist before UserProfile — added alongside).
 
 ## Commands
 

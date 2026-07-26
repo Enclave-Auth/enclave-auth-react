@@ -260,6 +260,45 @@
   color: var(--enclave-auth-color-muted);
 }
 
+.enclave-auth__coming-soon {
+  border: 1px dashed var(--enclave-auth-color-border-soft);
+  border-radius: var(--enclave-auth-radius-sm);
+  padding: var(--enclave-auth-spacing-md);
+  margin-top: var(--enclave-auth-spacing-sm);
+}
+
+.enclave-auth__coming-soon-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--enclave-auth-color-accent);
+  margin: 0 0 var(--enclave-auth-spacing-xs);
+}
+
+.enclave-auth__coming-soon-body {
+  color: var(--enclave-auth-color-text-soft);
+  margin: 0;
+  font-size: 13px;
+}
+
+.enclave-auth__section {
+  margin-bottom: var(--enclave-auth-spacing-lg);
+  padding-bottom: var(--enclave-auth-spacing-md);
+  border-bottom: 1px solid var(--enclave-auth-color-border-soft);
+}
+
+.enclave-auth__section:last-of-type {
+  border-bottom: none;
+}
+
+.enclave-auth__section-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--enclave-auth-color-muted);
+  margin: 0 0 var(--enclave-auth-spacing-sm);
+}
+
 .enclave-auth__config-error {
   padding: var(--enclave-auth-spacing-md);
   border: 1px solid var(--enclave-auth-color-danger);

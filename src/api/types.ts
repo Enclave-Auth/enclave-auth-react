@@ -3,6 +3,11 @@ export type ApplicationConfig = {
   brandingRemovable: boolean;
 };
 
+export type AccountProfile = {
+  email: string;
+  pinEnrolled: boolean;
+};
+
 export type AccountBlobsResponse = {
   wrappedIdentityKey: {
     formatVersion: number;

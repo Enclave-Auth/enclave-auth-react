@@ -6,6 +6,7 @@ export {
 
 export { SignIn, type SignInProps } from "./components/SignIn.js";
 export { SignUp, type SignUpProps } from "./components/SignUp.js";
+export { UserProfile, type UserProfileProps } from "./components/UserProfile.js";
 export { UserButton, type UserButtonProps } from "./components/UserButton.js";
 export { PoweredByFooter } from "./components/PoweredByFooter.js";
 

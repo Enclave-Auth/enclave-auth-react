@@ -21,6 +21,7 @@ export function renderWithAuth(
     routes?: MockRoute[];
     theme?: EnclaveAuthTheme;
     brandingRemovable?: boolean;
+    fetchImpl?: typeof fetch;
   } & Omit<RenderOptions, "wrapper">,
 ) {
   const routes: MockRoute[] = [
@@ -33,7 +34,7 @@ export function renderWithAuth(
     ...(options?.routes ?? []),
   ];
 
-  const fetchImpl = createMockFetch(routes);
+  const fetchImpl = options?.fetchImpl ?? createMockFetch(routes);
 
   function Wrapper({ children }: { children: ReactNode }) {
     return (

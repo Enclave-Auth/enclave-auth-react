@@ -1,5 +1,6 @@
 import type {
   AccountBlobsResponse,
+  AccountProfile,
   ApplicationConfig,
   AuthorizePasswordChangeBody,
   AuthorizePasswordChangeResponse,
@@ -143,6 +144,29 @@ export function createAuthApiClient(options: AuthApiClientOptions) {
       sessionToken: string,
     ): Promise<{ ok: boolean }> {
       return postJson("/auth-enroll-pin", body, sessionToken);
+    },
+    fetchAccountProfile(sessionToken: string): Promise<AccountProfile> {
+      return postJson("/auth-account-profile", {}, sessionToken);
+    },
+    changePasswordRemote(
+      newPasswordUnlock: unknown,
+      sessionToken: string,
+    ): Promise<{ ok: boolean }> {
+      return postJson(
+        "/auth-change-password",
+        { newPasswordUnlock },
+        sessionToken,
+      );
+    },
+    rotateRecoveryKey(
+      recoveryUnlock: unknown,
+      sessionToken: string,
+    ): Promise<{ ok: boolean }> {
+      return postJson(
+        "/auth-rotate-recovery-key",
+        { recoveryUnlock },
+        sessionToken,
+      );
     },
   };
 }
