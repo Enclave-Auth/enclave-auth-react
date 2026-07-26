@@ -1,0 +1,269 @@
+.enclave-auth {
+  box-sizing: border-box;
+  color: var(--enclave-auth-color-text);
+  font-family: var(--enclave-auth-font-family);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.enclave-auth *,
+.enclave-auth *::before,
+.enclave-auth *::after {
+  box-sizing: border-box;
+}
+
+.enclave-auth__panel {
+  background: var(--enclave-auth-color-panel);
+  border: 1px solid var(--enclave-auth-color-border-soft);
+  border-radius: var(--enclave-auth-radius-sm);
+  padding: var(--enclave-auth-spacing-lg);
+  max-width: 420px;
+  width: 100%;
+}
+
+.enclave-auth__title {
+  font-family: var(--enclave-auth-font-family-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin: 0 0 var(--enclave-auth-spacing-sm);
+}
+
+.enclave-auth__subtitle {
+  color: var(--enclave-auth-color-text-soft);
+  margin: 0 0 var(--enclave-auth-spacing-md);
+}
+
+.enclave-auth__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--enclave-auth-spacing-xs);
+  margin-bottom: var(--enclave-auth-spacing-md);
+}
+
+.enclave-auth__label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--enclave-auth-color-muted);
+}
+
+.enclave-auth__input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--enclave-auth-color-border);
+  border-radius: var(--enclave-auth-radius-sm);
+  background: var(--enclave-auth-color-input-bg);
+  color: var(--enclave-auth-color-text);
+  font: inherit;
+}
+
+.enclave-auth__input:focus {
+  outline: none;
+  border-color: var(--enclave-auth-color-accent);
+  box-shadow: 0 0 0 1px var(--enclave-auth-color-accent-soft);
+}
+
+.enclave-auth__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--enclave-auth-color-accent);
+  border-radius: var(--enclave-auth-radius-sm);
+  background: var(--enclave-auth-color-accent);
+  color: var(--enclave-auth-color-text);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.enclave-auth__button:hover:not(:disabled) {
+  background: var(--enclave-auth-color-accent-pressed);
+  border-color: var(--enclave-auth-color-accent-pressed);
+}
+
+.enclave-auth__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.enclave-auth__button--ghost {
+  background: transparent;
+  border-color: var(--enclave-auth-color-border-soft);
+  color: var(--enclave-auth-color-text-soft);
+  margin-top: var(--enclave-auth-spacing-sm);
+}
+
+.enclave-auth__button--ghost:hover:not(:disabled) {
+  background: var(--enclave-auth-color-accent-soft);
+  border-color: var(--enclave-auth-color-accent);
+  color: var(--enclave-auth-color-accent);
+}
+
+.enclave-auth__link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--enclave-auth-color-accent);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.enclave-auth__link:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.enclave-auth__error {
+  color: var(--enclave-auth-color-danger);
+  margin: 0 0 var(--enclave-auth-spacing-sm);
+  font-size: 13px;
+}
+
+.enclave-auth__muted {
+  color: var(--enclave-auth-color-text-soft);
+  margin: 0 0 var(--enclave-auth-spacing-md);
+  font-size: 13px;
+}
+
+.enclave-auth__warning {
+  border: 1px solid var(--enclave-auth-color-accent);
+  background: var(--enclave-auth-color-accent-soft);
+  border-radius: var(--enclave-auth-radius-sm);
+  padding: var(--enclave-auth-spacing-sm) var(--enclave-auth-spacing-md);
+  margin-bottom: var(--enclave-auth-spacing-md);
+  font-size: 13px;
+}
+
+.enclave-auth__retry {
+  color: var(--enclave-auth-color-accent);
+  margin-bottom: var(--enclave-auth-spacing-sm);
+  font-size: 13px;
+}
+
+.enclave-auth__actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--enclave-auth-spacing-sm);
+  margin-top: var(--enclave-auth-spacing-sm);
+}
+
+.enclave-auth__word-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--enclave-auth-spacing-sm);
+  margin-bottom: var(--enclave-auth-spacing-md);
+}
+
+.enclave-auth__word-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--enclave-auth-color-border);
+  background: var(--enclave-auth-color-input-bg);
+  border-radius: var(--enclave-auth-radius-sm);
+  padding: 6px 8px;
+}
+
+.enclave-auth__word-index {
+  color: var(--enclave-auth-color-accent);
+  font-size: 11px;
+  font-weight: 700;
+  width: 16px;
+}
+
+.enclave-auth__word-text {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.enclave-auth__footer {
+  margin-top: var(--enclave-auth-spacing-md);
+  text-align: center;
+  font-size: 11px;
+  color: var(--enclave-auth-color-muted);
+}
+
+.enclave-auth__footer a {
+  color: var(--enclave-auth-color-muted);
+  text-decoration: underline;
+}
+
+.enclave-auth__user-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--enclave-auth-spacing-sm);
+  padding: 6px 10px;
+  border: 1px solid var(--enclave-auth-color-border-soft);
+  border-radius: var(--enclave-auth-radius-sm);
+  background: var(--enclave-auth-color-panel);
+  color: var(--enclave-auth-color-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.enclave-auth__user-button-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  min-width: 140px;
+  border: 1px solid var(--enclave-auth-color-border-soft);
+  border-radius: var(--enclave-auth-radius-sm);
+  background: var(--enclave-auth-color-panel);
+  padding: var(--enclave-auth-spacing-xs);
+  z-index: 10;
+}
+
+.enclave-auth__user-button-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.enclave-auth__menu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border: none;
+  background: transparent;
+  color: var(--enclave-auth-color-text);
+  font: inherit;
+  cursor: pointer;
+  border-radius: var(--enclave-auth-radius-sm);
+}
+
+.enclave-auth__menu-item:hover {
+  background: var(--enclave-auth-color-accent-soft);
+}
+
+.enclave-auth__avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--enclave-auth-radius-sm);
+  background: var(--enclave-auth-color-accent-soft);
+  color: var(--enclave-auth-color-accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.enclave-auth__loading {
+  padding: var(--enclave-auth-spacing-lg);
+  color: var(--enclave-auth-color-muted);
+}
+
+.enclave-auth__config-error {
+  padding: var(--enclave-auth-spacing-md);
+  border: 1px solid var(--enclave-auth-color-danger);
+  border-radius: var(--enclave-auth-radius-sm);
+  color: var(--enclave-auth-color-danger);
+  max-width: 420px;
+}
