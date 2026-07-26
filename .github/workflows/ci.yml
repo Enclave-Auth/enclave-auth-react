@@ -1,0 +1,41 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: enclave-auth-react
+
+      - uses: actions/checkout@v4
+        with:
+          repository: Enclave-Inc/enclave-pqc-primitives
+          path: enclave-pqc-primitives
+
+      - uses: actions/checkout@v4
+        with:
+          repository: Enclave-Auth/enclave-auth-sdk
+          path: enclave-auth-sdk
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build dependency chain
+        run: |
+          cd enclave-pqc-primitives && npm ci && npm run build
+          cd ../enclave-auth-sdk && npm ci && npm install ../enclave-pqc-primitives && npm run build
+
+      - name: Test auth-react
+        working-directory: enclave-auth-react
+        run: |
+          npm ci
+          npm install ../enclave-auth-sdk
+          npm run build
+          npm test

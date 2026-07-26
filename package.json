@@ -14,18 +14,24 @@
     "./styles.css": "./dist/styles/index.css"
   },
   "files": [
-    "dist",
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.css",
     "README.md",
     "LICENSE"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc && node scripts/copy-css.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@enclave/auth-sdk": "file:../enclave-auth-sdk"
+    "@enclave/auth-sdk": "^0.1.0"
   },
   "peerDependencies": {
     "react": ">=18",
