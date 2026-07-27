@@ -44,15 +44,6 @@ to an Enclave-hosted login URL.
 
 ### Install
 
-`@enclave-technologies/auth-react` is **not on npm yet** (first publish pending). Until
-`npm install @enclave-technologies/auth-react` resolves, install from GitHub:
-
-```bash
-npm install github:Enclave-Auth/enclave-auth-react#main
-```
-
-After the package is published:
-
 ```bash
 npm install @enclave-technologies/auth-react
 ```
