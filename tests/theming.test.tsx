@@ -21,6 +21,7 @@ describe("theming", () => {
         jsonResponse({
           applicationId: "app_1",
           brandingRemovable: false,
+          embeddingPermitted: true,
         }),
       ),
     ]);

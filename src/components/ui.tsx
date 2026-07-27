@@ -103,14 +103,17 @@ export function AuthPanel({
   subtitle,
   children,
   footer,
+  header,
 }: {
   title: string;
   subtitle?: string;
   children: ReactNode;
   footer?: ReactNode;
+  header?: ReactNode;
 }) {
   return (
     <div className="enclave-auth__panel">
+      {header}
       <h2 className="enclave-auth__title">{title}</h2>
       {subtitle ? <p className="enclave-auth__subtitle">{subtitle}</p> : null}
       {children}

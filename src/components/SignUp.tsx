@@ -17,9 +17,9 @@ import { AuthApiError } from "../api/client.js";
 import { encodePublicKey, mintSessionFromIdentitySeed } from "../crypto/flows.js";
 import { useEnclaveAuthContext } from "../context/EnclaveAuthProvider.js";
 import type { EnclaveAuthAppearance } from "../context/types.js";
+import { BrandedAuthPanel } from "./BrandedAuthPanel.js";
 import { PoweredByFooter } from "./PoweredByFooter.js";
 import {
-  AuthPanel,
   Button,
   ErrorText,
   Field,
@@ -318,7 +318,7 @@ export function SignUp({
 
   if (step === "email") {
     return (
-      <AuthPanel
+      <BrandedAuthPanel
         title={title}
         subtitle="Enter your email — we'll send a verification code before you choose a password."
         footer={<PoweredByFooter appearance={appearance} />}
@@ -343,13 +343,13 @@ export function SignUp({
           onClick={() => void onRequestCode()}
           disabled={busy || !email.includes("@") || retryAfter != null}
         />
-      </AuthPanel>
+      </BrandedAuthPanel>
     );
   }
 
   if (step === "code") {
     return (
-      <AuthPanel
+      <BrandedAuthPanel
         title="Check your email"
         subtitle={`Enter the 6-digit code we sent to ${email.trim().toLowerCase()}.`}
         footer={<PoweredByFooter appearance={appearance} />}
@@ -389,13 +389,13 @@ export function SignUp({
           }}
           disabled={busy}
         />
-      </AuthPanel>
+      </BrandedAuthPanel>
     );
   }
 
   if (step === "password") {
     return (
-      <AuthPanel
+      <BrandedAuthPanel
         title="Choose a password"
         footer={<PoweredByFooter appearance={appearance} />}
       >
@@ -433,13 +433,13 @@ export function SignUp({
           onClick={() => void onCreateAccount()}
           disabled={busy || !passwordOk}
         />
-      </AuthPanel>
+      </BrandedAuthPanel>
     );
   }
 
   if (step === "recovery-key" && pending) {
     return (
-      <AuthPanel
+      <BrandedAuthPanel
         title="Save your Recovery Key"
         footer={<PoweredByFooter appearance={appearance} />}
       >
@@ -470,13 +470,13 @@ export function SignUp({
             setStep("confirm");
           }}
         />
-      </AuthPanel>
+      </BrandedAuthPanel>
     );
   }
 
   if (step === "confirm" && pending) {
     return (
-      <AuthPanel
+      <BrandedAuthPanel
         title="Confirm your Recovery Key"
         footer={<PoweredByFooter appearance={appearance} />}
       >
@@ -512,13 +512,13 @@ export function SignUp({
             setError(null);
           }}
         />
-      </AuthPanel>
+      </BrandedAuthPanel>
     );
   }
 
   if (step === "pin") {
     return (
-      <AuthPanel
+      <BrandedAuthPanel
         title="Password-reset PIN"
         footer={<PoweredByFooter appearance={appearance} />}
       >
@@ -553,13 +553,13 @@ export function SignUp({
           onClick={() => void onSkipPin()}
           disabled={busy}
         />
-      </AuthPanel>
+      </BrandedAuthPanel>
     );
   }
 
   return (
-    <AuthPanel title={title} footer={<PoweredByFooter appearance={appearance} />}>
+    <BrandedAuthPanel title={title} footer={<PoweredByFooter appearance={appearance} />}>
       <Muted>Loading…</Muted>
-    </AuthPanel>
+    </BrandedAuthPanel>
   );
 }

@@ -1,6 +1,15 @@
+export type ApplicationBrandingConfig = {
+  displayName?: string;
+  logoUrl?: string;
+};
+
 export type ApplicationConfig = {
   applicationId: string;
   brandingRemovable: boolean;
+  embeddingPermitted: boolean;
+  brandingConfig?: ApplicationBrandingConfig | null;
+  /** Present when embeddingPermitted is false — canonical hosted fallback entry. */
+  hostedAuthUrl?: string | null;
 };
 
 export type AccountProfile = {

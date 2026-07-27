@@ -201,6 +201,25 @@ The meaningful UI difference today is **branding**:
 Your Application's plan is exposed publicly via `POST /application-config`
 (fetched automatically by `<EnclaveAuthProvider>`).
 
+### Free tier — hosted auth fallback
+
+Free-tier Applications **cannot embed** `@enclave/auth-react` on a third-party
+origin. The API enforces this by locking `allowed_origins` to Enclave's hosted
+auth domain (`https://auth.enclave.talk`) and returning
+`embeddingPermitted: false` from `/application-config`.
+
+When `embeddingPermitted` is false (or the browser Origin is rejected with
+401), `<EnclaveAuthProvider>` automatically redirects end users to:
+
+`https://auth.enclave.talk/hosted-auth?pk=<publishableKey>&mode=sign-in|sign-up|account`
+
+Set `embedMode` on the provider to control which hosted page opens. On the
+hosted page itself, pass `enableHostedFallback={false}` to prevent redirect
+loops.
+
+Paid plans (`standard`, `plus`, `enterprise`) embed normally on configured
+origins with no redirect.
+
 Paid plans also raise MAU caps (see
 [auth.enclave.talk/pricing](https://auth.enclave.talk/pricing)); that affects
 billing, not how components mount.
@@ -233,6 +252,9 @@ All components must be descendants of `<EnclaveAuthProvider>`.
 | `publishableKey` | `string` | yes | Application publishable key (`pk_live_…`). Sent as `X-Enclave-Publishable-Key` on every API call. |
 | `apiBaseUrl` | `string` | yes | Enclave Auth API base URL (no trailing slash). |
 | `theme` | `EnclaveAuthTheme` | no | CSS custom property overrides (see [Theming](#theming)). |
+| `embedMode` | `"sign-in" \| "sign-up" \| "account"` | no | Hosted fallback page mode (default `sign-in`). |
+| `hostedAuthBaseUrl` | `string` | no | Hosted site base URL (default `https://auth.enclave.talk`). |
+| `enableHostedFallback` | `boolean` | no | Redirect free-tier embeds to hosted UI (default `true`). |
 | `fetchImpl` | `typeof fetch` | no | Injectable fetch for tests. |
 | `children` | `ReactNode` | yes | Your app tree. |
 
@@ -248,7 +270,7 @@ While loading, renders `Loading…`. On config failure, renders
 | `apiBaseUrl` | `string` | Echo of prop. |
 | `publishableKey` | `string` | Echo of prop. |
 | `applicationId` | `string \| null` | From `application-config`. |
-| `config` | `ApplicationConfig \| null` | `{ applicationId, brandingRemovable }`. |
+| `config` | `ApplicationConfig \| null` | `{ applicationId, brandingRemovable, embeddingPermitted, brandingConfig?, hostedAuthUrl? }`. |
 | `configError` | `string \| null` | Set when config fetch fails. |
 | `isReady` | `boolean` | `true` after initial config attempt finishes. |
 | `sessionToken` | `string \| null` | Cached session JWT, if any. |

@@ -34,6 +34,27 @@
   margin: 0 0 var(--enclave-auth-spacing-md);
 }
 
+.enclave-auth__branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--enclave-auth-spacing-sm);
+  margin-bottom: var(--enclave-auth-spacing-md);
+  text-align: center;
+}
+
+.enclave-auth__branding-logo {
+  max-height: 48px;
+  max-width: 160px;
+  object-fit: contain;
+}
+
+.enclave-auth__branding-name {
+  color: var(--enclave-auth-color-text-soft);
+  font-size: 13px;
+  margin: 0;
+}
+
 .enclave-auth__field {
   display: flex;
   flex-direction: column;

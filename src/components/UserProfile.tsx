@@ -19,13 +19,13 @@ import type { AccountProfile } from "../api/types.js";
 import { withDerivedAmk, deriveAmkWithPassword } from "../crypto/flows.js";
 import { useEnclaveAuthContext } from "../context/EnclaveAuthProvider.js";
 import type { EnclaveAuthAppearance } from "../context/types.js";
+import { BrandedAuthPanel } from "./BrandedAuthPanel.js";
 import { PoweredByFooter } from "./PoweredByFooter.js";
 import {
   RecoveryKeyConfirmStep,
   RecoveryKeyDisplayStep,
 } from "./RecoveryKeyPanel.js";
 import {
-  AuthPanel,
   Button,
   ErrorText,
   Field,
@@ -323,14 +323,14 @@ export function UserProfile({
 
   if (!isSignedIn || !sessionToken) {
     return (
-      <AuthPanel title={title} footer={<PoweredByFooter appearance={appearance} />}>
+      <BrandedAuthPanel title={title} footer={<PoweredByFooter appearance={appearance} />}>
         <Muted>Sign in to manage your account.</Muted>
-      </AuthPanel>
+      </BrandedAuthPanel>
     );
   }
 
   return (
-    <AuthPanel title={title} footer={<PoweredByFooter appearance={appearance} />}>
+    <BrandedAuthPanel title={title} footer={<PoweredByFooter appearance={appearance} />}>
       {retryAfter != null ? (
         <RetryAfterMessage
           seconds={retryAfter}
@@ -592,6 +592,6 @@ export function UserProfile({
       <section className="enclave-auth__section">
         <Button label="Sign out" variant="ghost" onClick={signOut} />
       </section>
-    </AuthPanel>
+    </BrandedAuthPanel>
   );
 }

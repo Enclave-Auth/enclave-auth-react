@@ -7,6 +7,7 @@ export const TEST_API_BASE = "https://auth-api.test";
 export const defaultConfig: ApplicationConfig = {
   applicationId: TEST_APP_ID,
   brandingRemovable: false,
+  embeddingPermitted: true,
 };
 
 export function configUrl(): string {

@@ -66,6 +66,7 @@ describe("EnclaveAuthProvider", () => {
         jsonResponse({
           applicationId: TEST_APP_ID,
           brandingRemovable: false,
+          embeddingPermitted: true,
         }),
       ),
     ]);
@@ -94,6 +95,7 @@ describe("EnclaveAuthProvider", () => {
         jsonResponse({
           applicationId: TEST_APP_ID,
           brandingRemovable: false,
+          embeddingPermitted: true,
         }),
       ),
     ]);

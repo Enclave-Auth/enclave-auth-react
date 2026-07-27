@@ -25,3 +25,13 @@ export {
 } from "./theme/defaults.js";
 
 export { sessionStorageKey } from "./session/storage.js";
+
+export {
+  HOSTED_AUTH_PATH,
+  HOSTED_AUTH_SITE_ORIGIN,
+  HOSTED_AUTH_SITE_ORIGINS,
+  buildHostedAuthRedirectUrl,
+  isHostedAuthSiteLocation,
+  isHostedAuthSiteOrigin,
+  type EnclaveAuthEmbedMode,
+} from "./hosted-auth.js";

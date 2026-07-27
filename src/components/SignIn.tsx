@@ -15,9 +15,9 @@ import {
 } from "../crypto/flows.js";
 import { useEnclaveAuthContext } from "../context/EnclaveAuthProvider.js";
 import type { EnclaveAuthAppearance } from "../context/types.js";
+import { BrandedAuthPanel } from "./BrandedAuthPanel.js";
 import { PoweredByFooter } from "./PoweredByFooter.js";
 import {
-  AuthPanel,
   Button,
   ErrorText,
   Field,
@@ -163,7 +163,7 @@ export function SignIn({
   if (mode === "forgot-password") {
     const passwordOk = passwordCheck?.valid === true;
     return (
-      <AuthPanel
+      <BrandedAuthPanel
         title="Recover with PIN"
         subtitle="Enter your email and recovery PIN, then choose a new password."
         footer={<PoweredByFooter appearance={appearance} />}
@@ -233,12 +233,12 @@ export function SignIn({
             setPin("");
           }}
         />
-      </AuthPanel>
+      </BrandedAuthPanel>
     );
   }
 
   return (
-    <AuthPanel
+    <BrandedAuthPanel
       title={title}
       subtitle={subtitle}
       footer={<PoweredByFooter appearance={appearance} />}
@@ -325,6 +325,6 @@ export function SignIn({
           />
         )}
       </div>
-    </AuthPanel>
+    </BrandedAuthPanel>
   );
 }
