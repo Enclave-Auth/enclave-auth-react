@@ -61,7 +61,7 @@ export function SignUp({
   appearance,
   onSuccess,
 }: SignUpProps) {
-  const { api, setSession } = useEnclaveAuthContext();
+  const { api, setSession, refreshApplicationConfig } = useEnclaveAuthContext();
 
   const [step, setStep] = useState<Step>("email");
   const [email, setEmail] = useState("");
@@ -127,6 +127,7 @@ export function SignUp({
   }
 
   async function finishAuthenticated(token: string) {
+    await refreshApplicationConfig();
     setSession(token);
     wipePendingAccount(pending);
     setPending(null);
@@ -250,6 +251,7 @@ export function SignUp({
           pending.email,
           pending.account.identitySecretKeySeed,
         );
+        await refreshApplicationConfig();
         setSessionTokenLocal(token);
         setStep("pin");
       } catch (err) {

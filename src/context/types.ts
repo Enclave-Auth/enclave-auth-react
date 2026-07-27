@@ -28,6 +28,8 @@ export type EnclaveAuthContextValue = {
   setSession: (sessionToken: string) => void;
   signOut: () => void;
   shouldShowPoweredBy: (appearance?: EnclaveAuthAppearance) => boolean;
+  /** Fresh application-config fetch before auth flows (never cached persistently). */
+  refreshApplicationConfig: () => Promise<ApplicationConfig>;
 };
 
 export type EnclaveAuthProviderProps = {

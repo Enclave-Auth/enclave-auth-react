@@ -44,7 +44,7 @@ export function SignIn({
   appearance,
   onSuccess,
 }: SignInProps) {
-  const { api, setSession } = useEnclaveAuthContext();
+  const { api, setSession, refreshApplicationConfig } = useEnclaveAuthContext();
   const [mode, setMode] = useState<SignInMode>("password");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -95,6 +95,7 @@ export function SignIn({
     setRetryAfter(null);
     setBusy(true);
     try {
+      await refreshApplicationConfig();
       const token = await signInWithPassword(api, email, password);
       await finishSignIn(token);
     } catch (err) {
@@ -109,6 +110,7 @@ export function SignIn({
     setRetryAfter(null);
     setBusy(true);
     try {
+      await refreshApplicationConfig();
       const key = decodeRecoveryKeyFromDisplay(recoveryKey);
       const token = await signInWithRecoveryKey(api, email, key);
       await finishSignIn(token);
@@ -148,6 +150,7 @@ export function SignIn({
         return;
       }
       const token = await resetPasswordWithPin(api, email, pin, newPassword);
+      await refreshApplicationConfig();
       await finishSignIn(token);
     } catch (err) {
       if (err instanceof AuthApiError && err.status === 401) {
