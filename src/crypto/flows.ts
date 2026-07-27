@@ -8,7 +8,7 @@ import {
   type Challenge,
   type WrappedAmk,
   type WrappedIdentityKey,
-} from "@enclave/auth-sdk";
+} from "@enclave-technologies/auth-sdk";
 
 import type { AuthApiClient } from "../api/client.js";
 import type { AccountBlobsResponse } from "../api/types.js";

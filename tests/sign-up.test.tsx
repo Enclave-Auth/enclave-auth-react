@@ -6,8 +6,8 @@ import { SignUp } from "../src/components/SignUp.js";
 import { renderWithAuth } from "./helpers/render.js";
 import { jsonResponse, routePost } from "./helpers/mock-api.js";
 
-vi.mock("@enclave/auth-sdk", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("@enclave/auth-sdk")>();
+vi.mock("@enclave-technologies/auth-sdk", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@enclave-technologies/auth-sdk")>();
   return {
     ...actual,
     initCrypto: vi.fn(async () => {}),

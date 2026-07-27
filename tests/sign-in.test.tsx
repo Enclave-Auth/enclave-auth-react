@@ -6,8 +6,8 @@ import { SignIn } from "../src/components/SignIn.js";
 import { renderWithAuth } from "./helpers/render.js";
 import { jsonResponse, routePost } from "./helpers/mock-api.js";
 
-vi.mock("@enclave/auth-sdk", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("@enclave/auth-sdk")>();
+vi.mock("@enclave-technologies/auth-sdk", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@enclave-technologies/auth-sdk")>();
   return {
     ...actual,
     initCrypto: vi.fn(async () => {}),
@@ -29,7 +29,7 @@ vi.mock("@enclave/auth-sdk", async (importOriginal) => {
 import {
   UnlockFailedError,
   unlockWithPassword,
-} from "@enclave/auth-sdk";
+} from "@enclave-technologies/auth-sdk";
 
 describe("SignIn", () => {
   it("completes password sign-in flow", async () => {

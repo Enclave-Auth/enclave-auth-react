@@ -1,4 +1,4 @@
-# @enclave/auth-react — Integration guide
+# @enclave-technologies/auth-react — Integration guide
 
 Drop-in React components for Enclave Auth sign-in, sign-up, and account
 management. Auth UI renders **inline on your page** — users are never redirected
@@ -44,8 +44,8 @@ to an Enclave-hosted login URL.
 
 ### Install
 
-`@enclave/auth-react` is **not on npm yet** (first publish pending). Until
-`npm install @enclave/auth-react` resolves, install from GitHub:
+`@enclave-technologies/auth-react` is **not on npm yet** (first publish pending). Until
+`npm install @enclave-technologies/auth-react` resolves, install from GitHub:
 
 ```bash
 npm install github:Enclave-Auth/enclave-auth-react#main
@@ -54,16 +54,16 @@ npm install github:Enclave-Auth/enclave-auth-react#main
 After the package is published:
 
 ```bash
-npm install @enclave/auth-react
+npm install @enclave-technologies/auth-react
 ```
 
-Peer dependency: **React 18+**. The package depends on `@enclave/auth-sdk`
+Peer dependency: **React 18+**. The package depends on `@enclave-technologies/auth-sdk`
 (crypto) automatically — you do not install primitives separately.
 
 Import the stylesheet **once** in your app entry:
 
 ```tsx
-import "@enclave/auth-react/styles.css";
+import "@enclave-technologies/auth-react/styles.css";
 ```
 
 ### Minimal working example (Vite + React)
@@ -88,8 +88,8 @@ import {
   SignIn,
   UserButton,
   useAuth,
-} from "@enclave/auth-react";
-import "@enclave/auth-react/styles.css";
+} from "@enclave-technologies/auth-react";
+import "@enclave-technologies/auth-react/styles.css";
 
 const publishableKey = import.meta.env.VITE_ENCLAVE_PUBLISHABLE_KEY;
 const apiBaseUrl = import.meta.env.VITE_ENCLAVE_API_BASE_URL;
@@ -181,7 +181,7 @@ server-side are opaque to Enclave.
 | **PIN** | Forgot-password recovery on `<SignIn />` | Optional at registration (`<SignUp />`). Not a day-to-day unlock in auth-react today. |
 | **Recovery Key** | Account recovery; 24-word BIP39-style phrase | Shown once at sign-up; `<SignIn />` offers "Use Recovery Key instead". `<UserProfile />` can rotate it when signed in. |
 
-All cryptography runs in the browser via `@enclave/auth-sdk` (post-quantum
+All cryptography runs in the browser via `@enclave-technologies/auth-sdk` (post-quantum
 ML-KEM / ML-DSA, Category 5).
 
 ### Plan tiers and embedded UI behavior
@@ -189,7 +189,7 @@ ML-KEM / ML-DSA, Category 5).
 **All plans (Free, Standard, Plus, Enterprise)** use the same embedded model:
 `<SignIn />`, `<SignUp />`, and related components render on **your** origin.
 There is no Free-tier redirect to an Enclave-hosted login page in
-`@enclave/auth-react`.
+`@enclave-technologies/auth-react`.
 
 The meaningful UI difference today is **branding**:
 
@@ -203,7 +203,7 @@ Your Application's plan is exposed publicly via `POST /application-config`
 
 ### Free tier — hosted auth fallback
 
-Free-tier Applications **cannot embed** `@enclave/auth-react` on a third-party
+Free-tier Applications **cannot embed** `@enclave-technologies/auth-react` on a third-party
 origin. The API enforces this by locking `allowed_origins` to Enclave's hosted
 auth domain (`https://auth.enclave.talk`) and returning
 `embeddingPermitted: false` from `/application-config`.
@@ -433,7 +433,7 @@ Enclave Auth marketing and the developer console.
 ### Publishable vs secret key
 
 - **Publishable (`pk_live_…`)** — safe to embed in front-end code. Identifies
-  your Application on every `@enclave/auth-react` API call.
+  your Application on every `@enclave-technologies/auth-react` API call.
 - **Secret (`sk_live_…`)** — privileged server-to-server operations only. Do not
   pass to `<EnclaveAuthProvider>`.
 
@@ -452,7 +452,7 @@ If you paste a secret key into `publishableKey`, config and auth calls return
 4. **Using secret key in the browser** — always `pk_live_…` in
    `publishableKey`.
 5. **Missing stylesheet** — UI is unstyled without
-   `import "@enclave/auth-react/styles.css"`.
+   `import "@enclave-technologies/auth-react/styles.css"`.
 
 ### What errors look like
 
@@ -472,6 +472,6 @@ before debugging sign-in.
 
 ## License
 
-`@enclave/auth-react` and `@enclave/auth-sdk` are **AGPL-3.0-or-later**.
+`@enclave-technologies/auth-react` and `@enclave-technologies/auth-sdk` are **AGPL-3.0-or-later**.
 Network-deployed apps using this UI must comply with AGPL source-offer
 requirements unless you hold a separate commercial license from Enclave.

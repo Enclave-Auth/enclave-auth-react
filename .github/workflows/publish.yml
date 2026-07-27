@@ -1,5 +1,5 @@
-# Publish @enclave/auth-react to npm on GitHub Release (tag e.g. v0.1.0).
-# Requires @enclave/auth-sdk (and transitively @enclave/pqc-primitives) on npm.
+# Publish @enclave-technologies/auth-react to npm on GitHub Release (tag e.g. v0.1.0).
+# Requires @enclave-technologies/auth-sdk (and transitively @enclave-technologies/pqc-primitives) on npm.
 # Required secret: NPM_TOKEN
 
 name: publish

@@ -12,7 +12,7 @@ import {
   validatePin,
   type PasswordValidationResult,
   type PinValidationResult,
-} from "@enclave/auth-sdk";
+} from "@enclave-technologies/auth-sdk";
 
 import { AuthApiError } from "../api/client.js";
 import type { AccountProfile } from "../api/types.js";

@@ -8,7 +8,7 @@ import {
   type CSSProperties,
   type ReactNode,
 } from "react";
-import { initCrypto } from "@enclave/auth-sdk";
+import { initCrypto } from "@enclave-technologies/auth-sdk";
 
 import { AuthApiError } from "../api/client.js";
 import type { ApplicationConfig } from "../api/types.js";

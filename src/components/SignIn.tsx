@@ -4,7 +4,7 @@ import {
   decodeRecoveryKeyFromDisplay,
   validatePassword,
   type PasswordValidationResult,
-} from "@enclave/auth-sdk";
+} from "@enclave-technologies/auth-sdk";
 
 import { AuthApiError } from "../api/client.js";
 import {

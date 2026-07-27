@@ -15,7 +15,7 @@ import {
   routePost,
 } from "./helpers/mock-api.js";
 
-vi.mock("@enclave/auth-sdk", () => ({
+vi.mock("@enclave-technologies/auth-sdk", () => ({
   initCrypto: vi.fn(async () => {}),
 }));
 

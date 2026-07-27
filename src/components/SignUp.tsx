@@ -11,7 +11,7 @@ import {
   type CreateAccountResult,
   type PasswordValidationResult,
   type PinValidationResult,
-} from "@enclave/auth-sdk";
+} from "@enclave-technologies/auth-sdk";
 
 import { AuthApiError } from "../api/client.js";
 import { encodePublicKey, mintSessionFromIdentitySeed } from "../crypto/flows.js";

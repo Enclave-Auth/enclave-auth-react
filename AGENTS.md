@@ -4,7 +4,7 @@ Drop-in React sign-in / sign-up UI for third-party web apps embedding Enclave Au
 
 ## Rules
 
-1. Crypto only via `@enclave/auth-sdk` — never `@enclave/pqc-primitives` directly.
+1. Crypto only via `@enclave-technologies/auth-sdk` — never `@enclave-technologies/pqc-primitives` directly.
 2. Call `initCrypto()` once in `EnclaveAuthProvider` before any auth flow.
 3. Persist **session token only** in `localStorage` (`__enclave_auth_${applicationId}_session`).
    Never persist `identitySecretKeySeed`, AMK, or recovery keys.

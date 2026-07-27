@@ -11,8 +11,8 @@ const profileRoute = routePost("/auth-account-profile", () =>
   jsonResponse({ email: "user@example.com", pinEnrolled: false }),
 );
 
-vi.mock("@enclave/auth-sdk", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("@enclave/auth-sdk")>();
+vi.mock("@enclave-technologies/auth-sdk", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@enclave-technologies/auth-sdk")>();
   return {
     ...actual,
     initCrypto: vi.fn(async () => {}),
@@ -50,7 +50,7 @@ vi.mock("@enclave/auth-sdk", async (importOriginal) => {
 import {
   UnlockFailedError,
   unlockWithPassword,
-} from "@enclave/auth-sdk";
+} from "@enclave-technologies/auth-sdk";
 
 function signedInRender(extraRoutes: Parameters<typeof renderWithAuth>[1] = {}) {
   localStorage.setItem(

@@ -4,7 +4,7 @@ import { screen, waitFor } from "@testing-library/react";
 import { SignIn } from "../src/components/SignIn.js";
 import { renderWithAuth } from "./helpers/render.js";
 
-vi.mock("@enclave/auth-sdk", () => ({
+vi.mock("@enclave-technologies/auth-sdk", () => ({
   initCrypto: vi.fn(async () => {}),
 }));
 

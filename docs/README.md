@@ -1,4 +1,4 @@
-# @enclave/auth-react documentation
+# @enclave-technologies/auth-react documentation
 
 | Document | Description |
 |----------|-------------|

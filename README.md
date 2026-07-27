@@ -1,4 +1,4 @@
-# @enclave/auth-react
+# @enclave-technologies/auth-react
 
 Drop-in Enclave Auth sign-in and sign-up UI for React web apps. Renders inline
 on the host page — no redirect to Enclave-owned URLs.
@@ -10,7 +10,7 @@ component API reference, theming, and origin/key troubleshooting.
 
 ## Install
 
-`@enclave/auth-react` is not on npm yet. Until the first release:
+`@enclave-technologies/auth-react` is not on npm yet. Until the first release:
 
 ```bash
 npm install github:Enclave-Auth/enclave-auth-react#main
@@ -19,13 +19,13 @@ npm install github:Enclave-Auth/enclave-auth-react#main
 After publish:
 
 ```bash
-npm install @enclave/auth-react
+npm install @enclave-technologies/auth-react
 ```
 
 Import styles once:
 
 ```tsx
-import "@enclave/auth-react/styles.css";
+import "@enclave-technologies/auth-react/styles.css";
 ```
 
 ## Minimal example
@@ -36,8 +36,8 @@ import {
   SignIn,
   UserButton,
   useAuth,
-} from "@enclave/auth-react";
-import "@enclave/auth-react/styles.css";
+} from "@enclave-technologies/auth-react";
+import "@enclave-technologies/auth-react/styles.css";
 
 export function App() {
   return (
@@ -84,5 +84,5 @@ node scripts/verify-quickstart.mjs
 
 **AGPL-3.0-or-later** — see [`LICENSE`](./LICENSE). Network-deployed apps
 using this UI must comply with AGPL source-offer requirements unless you
-hold a separate commercial license from Enclave. `@enclave/auth-sdk` is a
+hold a separate commercial license from Enclave. `@enclave-technologies/auth-sdk` is a
 dependency and is also AGPL-3.0-or-later.
