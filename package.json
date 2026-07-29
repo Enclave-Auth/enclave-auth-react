@@ -1,6 +1,6 @@
 {
   "name": "@enclave-technologies/auth-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Drop-in Enclave Auth sign-in/sign-up UI for React web apps",
   "license": "AGPL-3.0-or-later",
   "type": "module",
